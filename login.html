@@ -50,30 +50,30 @@
                 <div class="col-lg-5 col-md-9 col-sm-10 p-0">
                     <div class="container-fluid">
                         <div class="form-block">
-                            <a href="index.html" class="color-primary h6 mb-30"><i class="fal fa-chevron-left"></i>&nbsp;&nbsp;Back To Home</a>
-                            <h2 class="mb-30 light-black">Log in</h2>
+                            <a href="index.html" class="color-primary h6 mb-30"><i class="fal fa-chevron-left"></i>&nbsp;&nbsp;Retour à l'accueil</a>
+                            <h2 class="mb-30 light-black">Se connecter</h2>
                                 <div class="google mb-24">
-                                    <h6 class="color-white"><a href="" class="link-btn mb-24 mb-sm-0"> Continue with Google&nbsp;<img src="assets/media/icons/google-icon.png" alt=""></a></h6>
+                                    <h6 class="color-white"><a href="" class="link-btn mb-24 mb-sm-0"> Continuer avec Google&nbsp;<img src="assets/media/icons/google-icon.png" alt=""></a></h6>
                                 </div>
                                 <div class="facebook mb-30">
-                                    <h6 class="color-white"><a href="" class="link-btn"> Continue with Facebook&nbsp;<img src="assets/media/icons/facebook-icon.png" alt=""></a></h6>
+                                    <h6 class="color-white"><a href="" class="link-btn"> Continuer avec Facebook&nbsp;<img src="assets/media/icons/facebook-icon.png" alt=""></a></h6>
                                 </div>
-                            <h5 class="or mb-8">or</h5>
-                            <h6 class="mb-24 text-center">Sign up with your email address</h6>
+                            <h5 class="or mb-8">ou</h5>
+                            <h6 class="mb-24 text-center">Connectez-vous avec votre adresse e-mail</h6>
                             <form method="post" action="login.html" class="form-group contact-form">
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <div class="mb-24">
-                                            <input type="email" class="form-control" id="signup-mail" name="email" required="" placeholder="Email">
+                                            <input type="email" class="form-control" id="signup-mail" name="email" required="" placeholder="E-mail">
                                         </div>
                                     </div>
                                     <div class="col-sm-12">
                                         <div class="mb-24">
-                                            <input type="password" class="form-control" id="create-password" name="password" required="" placeholder="Password">
+                                            <input type="password" class="form-control" id="create-password" name="password" required="" placeholder="Mot de passe">
                                         </div>
                                     </div>
                                     <div class="d-flex justify-content-end">
-                                        <button type="submit" class="cus-btn small-pad mb-24">Login</button>
+                                        <button type="submit" class="cus-btn small-pad mb-24">Se connecter</button>
                                         <!-- Alert Message -->
                                         <div id="message" class="alert-msg"></div>
                                     </div>
@@ -105,7 +105,58 @@
             <div class="logo-box">
                 <a href="index.html" aria-label="logo image"><img src="assets/media/logo.png" alt="" class="invisible"></a>
             </div>
-            <div class="mobile-nav__container"></div>
+            <div class="mobile-nav__container">
+                <ul class="main-menu__list">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0);">Vols</a>
+                        <ul class="sub-menu">
+                            <li><a href="flight-listing.html">Liste des vols</a></li>
+                            <li><a href="flight-booking.html">Réservation de vol</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0);">Voitures</a>
+                        <ul class="sub-menu">
+                            <li><a href="car-listing.html">Liste des voitures</a></li>
+                            <li><a href="car-booking.html">Réservation de voiture</a></li>
+                            <li><a href="car-detail.html">Détails de la voiture</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0);">Hôtels</a>
+                        <ul class="sub-menu">
+                            <li><a href="hotel-listing.html">Liste des hôtels</a></li>
+                            <li><a href="hotel-booking.html">Réservation d'hôtel</a></li>
+                            <li><a href="hotel-detail.html">Détails de l'hôtel</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0);">Circuits</a>
+                        <ul>
+                            <li><a href="tour-packages.html">Forfaits touristiques</a></li>
+                            <li><a href="tour-detail.html">Détails du circuit</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0);">Pages</a>
+                        <ul class="sub-menu">
+                            <li><a href="about-us.html">À propos</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="privacy-policy.html">Politique de confidentialité</a></li>
+                            <li><a href="login.html">Connexion</a></li>
+                            <li><a href="sign-up.html">Inscription</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0);">Actualités</a>
+                        <ul>
+                            <li><a href="blog-listing.html">Liste des actualités</a></li>
+                            <li><a href="blog-detail.html">Détails de l'actualité</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
             <ul class="mobile-nav__contact list-unstyled">
                 <li>
                     <i class="fas fa-envelope"></i>
