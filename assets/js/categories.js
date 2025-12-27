@@ -3,6 +3,7 @@ const mokoCategories = [
         id: 1,
         name: "Maison & Quotidien",
         icon: "fa-home",
+        image: "1️⃣ Maison & Quotidien.jpeg",
         subcategories: [
             "Ménage & nettoyage",
             "Dépannage domicile",
@@ -17,6 +18,7 @@ const mokoCategories = [
         id: 2,
         name: "Famille & Assistance",
         icon: "fa-users",
+        image: "2️⃣ Famille & Assistance.jpeg",
         subcategories: [
             "Babysitting",
             "Garde d’enfants",
@@ -30,6 +32,7 @@ const mokoCategories = [
         id: 3,
         name: "Voyage & Mobilité",
         icon: "fa-plane",
+        image: "3️⃣ Voyage & Mobilité.jpeg",
         subcategories: [
             "Billetterie",
             "Hébergement",
@@ -43,6 +46,7 @@ const mokoCategories = [
         id: 4,
         name: "Transport & Logistique",
         icon: "fa-truck",
+        image: "4️⃣ Transport & Logistique.jpeg",
         subcategories: [
             "Transport de personnes",
             "Chauffeur privé",
@@ -57,6 +61,7 @@ const mokoCategories = [
         id: 5,
         name: "Administratif & Démarches",
         icon: "fa-file-signature",
+        image: "5️⃣ Administratif & Démarches.jpeg",
         subcategories: [
             "Démarches administratives",
             "Documents officiels",
@@ -69,6 +74,7 @@ const mokoCategories = [
         id: 6,
         name: "Légal & Juridique",
         icon: "fa-balance-scale",
+        image: "6️⃣ Légal & Juridique.jpeg",
         subcategories: [
             "Création d’entreprise",
             "Domiciliation",
@@ -81,6 +87,7 @@ const mokoCategories = [
         id: 7,
         name: "Business & Entrepreneuriat",
         icon: "fa-briefcase",
+        image: "7️⃣ Business & Entrepreneuriat.jpeg",
         subcategories: [
             "Conseil business",
             "Audit & diagnostic",
@@ -93,6 +100,7 @@ const mokoCategories = [
         id: 8,
         name: "Digital & Technologie",
         icon: "fa-laptop-code",
+        image: "8️⃣ Digital & Technologie.jpeg",
         subcategories: [
             "Création de sites web",
             "Développement d’applications",
@@ -106,6 +114,7 @@ const mokoCategories = [
         id: 9,
         name: "Design & Création",
         icon: "fa-paint-brush",
+        image: "9️⃣ Design & Création.jpeg",
         subcategories: [
             "Logo & identité visuelle",
             "Branding",
@@ -118,6 +127,7 @@ const mokoCategories = [
         id: 10,
         name: "Marketing & Communication",
         icon: "fa-bullhorn",
+        image: "🔟 Marketing & Communication.jpeg",
         subcategories: [
             "Marketing digital",
             "Réseaux sociaux",
@@ -131,6 +141,7 @@ const mokoCategories = [
         id: 11,
         name: "Finance & Paiements",
         icon: "fa-money-bill-wave",
+        image: "1️⃣1️⃣ Finance & Paiements.jpeg",
         subcategories: [
             "Transfert d’argent",
             "Réception de paiements"
@@ -140,6 +151,7 @@ const mokoCategories = [
         id: 12,
         name: "Comptabilité & Gestion",
         icon: "fa-calculator",
+        image: "1️⃣2️⃣ Comptabilité & Gestion.jpeg",
         subcategories: [
             "Comptabilité",
             "Gestion financière",
@@ -152,6 +164,7 @@ const mokoCategories = [
         id: 13,
         name: "Sourcing & Recherche",
         icon: "fa-search",
+        image: "1️⃣3️⃣ Sourcing & Recherche.jpeg",
         subcategories: [
             "Sourcing produits",
             "Recherche fournisseurs",
@@ -165,6 +178,7 @@ const mokoCategories = [
         id: 14,
         name: "Formation & Éducation",
         icon: "fa-graduation-cap",
+        image: "1️⃣4️⃣ Formation & Éducation.jpeg",
         subcategories: [
             "Formations professionnelles",
             "Formations digitales",
@@ -177,6 +191,7 @@ const mokoCategories = [
         id: 15,
         name: "Emploi & Opportunités",
         icon: "fa-briefcase",
+        image: "1️⃣5️⃣ Emploi & Opportunités.jpeg",
         subcategories: [
             "Recherche d’emploi",
             "Coaching emploi",
@@ -189,6 +204,7 @@ const mokoCategories = [
         id: 16,
         name: "Immobilier",
         icon: "fa-building",
+        image: "1️⃣6️⃣ Immobilier.jpeg",
         subcategories: [
             "Recherche de biens",
             "Location",
@@ -201,6 +217,7 @@ const mokoCategories = [
         id: 17,
         name: "Événementiel & Loisirs",
         icon: "fa-calendar-alt",
+        image: "1️⃣7️⃣ Événementiel & Loisirs.jpeg",
         subcategories: [
             "Organisation d’événements",
             "Événements privés",
@@ -213,6 +230,7 @@ const mokoCategories = [
         id: 18,
         name: "Commerce & Produits",
         icon: "fa-shopping-cart",
+        image: "1️⃣8️⃣ Commerce & Produits.jpeg",
         subcategories: [
             "Achat & revente",
             "E-commerce",
@@ -225,7 +243,9 @@ const mokoCategories = [
         id: 19,
         name: "Santé & Bien-être",
         icon: "fa-heartbeat",
+        image: "santé et bien etre .jpeg",
         subcategories: [
+            "Bien-être général",
             "Coaching santé",
             "Fitness & nutrition",
             "Soins à domicile",
@@ -235,7 +255,8 @@ const mokoCategories = [
     {
         id: 20,
         name: "Accompagnement & Service personnalisé",
-        icon: "fa-handshake",
+        icon: "fa-hands-helping",
+        image: "2️⃣0️⃣ Accompagnement & Service personnalisé.jpeg",
         subcategories: [
             "Demandes sur mesure",
             "Gestion complète de projets",
@@ -245,7 +266,3 @@ const mokoCategories = [
         ]
     }
 ];
-
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = mokoCategories;
-}

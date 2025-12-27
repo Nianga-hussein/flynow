@@ -1,4 +1,4 @@
-﻿@charset "UTF-8";
+@charset "UTF-8";
 /*---------------------------------------------"
 // Template Name: NIANGA Claude Hussein
 // Template URL: https://nianga-hussein.github.io/Porfolio/
@@ -51,7 +51,7 @@ ol.list-style {
 
 ul.list-style li::marker,
 ol.list-style li::marker {
-  color: #4D73FC;
+  color: #f33c0e;
 }
 
 .unstyled {
@@ -149,7 +149,7 @@ body::-webkit-scrollbar-track {
 }
 body::-webkit-scrollbar-thumb {
   border-radius: 4px;
-  background: #4D73FC;
+  background: #f33c0e;
 }
 @media (max-width: 991px) {
   body {
@@ -208,7 +208,7 @@ a {
   transition: all 0.5s ease-in-out;
 }
 a:hover {
-  color: #4D73FC;
+  color: #f33c0e;
 }
 
 span {
@@ -414,7 +414,7 @@ p {
 Helpers
 -------------------------*/
 .color-primary {
-  color: #4D73FC !important;
+  color: #f33c0e !important;
 }
 
 .color-sec {
@@ -422,7 +422,7 @@ Helpers
 }
 
 .bg-primary {
-  background-color: #4D73FC !important;
+  background-color: #f33c0e !important;
 }
 
 .bg-sec {
@@ -564,11 +564,11 @@ Helpers
   transition: all 0.5s ease-in-out;
 }
 .social-icons li a:hover {
-  color: #4D73FC;
+  color: #f33c0e;
 }
 .social-icons li a:hover svg {
-  stroke: #4D73FC;
-  stroke-width: #4D73FC;
+  stroke: #f33c0e;
+  stroke-width: #f33c0e;
 }
 
 .countdown {
@@ -1296,115 +1296,51 @@ Elements
   position: fixed;
   width: 100%;
   height: 100vh;
-  display: grid;
+  display: flex;
+  justify-content: center;
   align-items: center;
-  text-align: center;
-  background: #F8F8FF;
+  background: #ffffff;
   z-index: 9999999;
-  align-content: center;
 }
-#preloader .loader {
-  text-align: center;
-  width: 100%;
+
+#preloader .loader-content {
   position: relative;
-  overflow: hidden;
-  max-width: 35rem;
-  height: 18rem;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
-#preloader .loader .wait {
-  margin: 5rem 0;
-  visibility: hidden;
+
+#preloader .loader-content .logo-box {
+  margin-bottom: 25px;
+  position: relative;
+  z-index: 2;
 }
-#preloader .loader .iata_code {
-  font-size: 4rem;
-  font-weight: 600;
-  top: 60%;
-  position: absolute;
-  color: #4D73FC;
+
+#preloader .loader-content .preloader-logo {
+  max-width: 180px;
+  height: auto;
+  animation: logoPulse 2s ease-in-out infinite;
 }
-#preloader .loader .iata_code.departure_city {
-  left: 55px;
+
+#preloader .loader-content .loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid rgba(243, 60, 14, 0.2);
+  border-radius: 50%;
+  border-top-color: #f33c0e;
+  animation: spinnerRotate 1s linear infinite;
 }
-#preloader .loader .iata_code.arrival_city {
-  right: 0.5rem;
+
+@keyframes logoPulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.9; }
+  100% { transform: scale(1); opacity: 1; }
 }
-#preloader .loader .plane {
-  position: absolute;
-  margin: 0 auto;
-  width: 100%;
-}
-#preloader .loader .plane .plane-img {
-  -webkit-animation: spin 2.5s linear infinite;
-  -moz-animation: spin 2.5s linear infinite;
-  animation: spin 2.5s linear infinite;
-}
-@media (max-width: 575px) {
-  #preloader .loader .plane .plane-img {
-    width: 210px;
-  }
-}
-@-moz-keyframes spin {
-  100% {
-    -moz-transform: rotate(360deg);
-  }
-}
-@-webkit-keyframes spin {
-  100% {
-    -webkit-transform: rotate(360deg);
-  }
-}
-@keyframes spin {
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-#preloader .loader .earth-wrapper {
-  position: absolute;
-  margin: 0 auto;
-  width: 100%;
-  padding-top: 2.7rem;
-}
-#preloader .loader .earth-wrapper .earth {
-  width: 160px;
-  height: 160px;
-  background: url("https://zupimages.net/up/19/34/6vlb.gif");
-  border-radius: 100%;
-  background-size: 340px;
-  animation: earthAnim 12s infinite linear;
-  margin: 0 auto;
-  border: 1px solid #CDD1D3;
-}
-@media (max-width: 575px) {
-  #preloader .loader .earth-wrapper .earth {
-    width: 120px;
-    height: 120px;
-  }
-}
-@keyframes earthAnim {
-  0% {
-    background-position-x: 0;
-  }
-  100% {
-    background-position-x: -340px;
-  }
-}
-@media screen and (max-width: 420px) {
-  #preloader .loader .departure_city {
-    left: 0;
-    right: 0;
-    top: 30%;
-    position: absolute;
-    margin: 0 auto;
-  }
-  #preloader .loader .arrival_city {
-    left: 0;
-    right: 0;
-    top: 93%;
-    position: absolute;
-    margin: 0 auto;
-  }
+
+@keyframes spinnerRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 .back-to-top {
@@ -1417,7 +1353,7 @@ Elements
   font-size: 100px;
   padding: 11px 0;
   border-radius: 10px;
-  background: #4D73FC;
+  background: #f33c0e;
   color: #F8F8FF;
   text-align: center;
   opacity: 0;
@@ -1458,7 +1394,7 @@ Elements
   transition: all 0.5s ease-in-out;
   border-radius: 10px;
   border: none;
-  background: #4D73FC;
+  background: #f33c0e;
   box-shadow: 4px 4px 10px 0px rgba(77, 115, 252, 0.3);
   color: #F8F8FF;
 }
@@ -1509,7 +1445,7 @@ Elements
   letter-spacing: inherit;
 }
 .cus-btn.primary.active, .cus-btn.primary:hover {
-  background-color: #4D73FC;
+  background-color: #f33c0e;
   color: #F8F8FF;
   box-shadow: 4px 4px 10px 0px rgba(77, 115, 252, 0.3);
 }
@@ -1525,7 +1461,7 @@ Elements
   transition: all 0.5s ease-in-out;
 }
 .cus-btn.grey:hover {
-  background: #4D73FC;
+  background: #f33c0e;
 }
 .cus-btn.dark {
   background-color: #212627;
@@ -1557,7 +1493,7 @@ Elements
   color: #F8F8FF;
 }
 .light-btn.primary i {
-  color: #4D73FC;
+  color: #f33c0e;
 }
 .light-btn.primary:hover {
   box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.04), 6px 3px 14px 0px rgba(0, 0, 0, 0.04), 23px 12px 26px 0px rgba(0, 0, 0, 0.03), 53px 27px 35px 0px rgba(0, 0, 0, 0.02), 94px 48px 42px 0px rgba(0, 0, 0, 0.01);
@@ -1583,7 +1519,7 @@ Elements
   transition: all 0.5s ease-in-out;
 }
 .cus-btn-2:hover {
-  border-color: #4D73FC;
+  border-color: #f33c0e;
   box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.04), 6px 3px 14px 0px rgba(0, 0, 0, 0.04), 23px 12px 26px 0px rgba(0, 0, 0, 0.03), 53px 27px 35px 0px rgba(0, 0, 0, 0.02), 94px 48px 42px 0px rgba(0, 0, 0, 0.01);
 }
 .cus-btn-2.btn-sec {
@@ -1778,7 +1714,7 @@ select::-ms-expand {
   transition: 0.25s all ease;
 }
 .select:hover::after {
-  color: #4D73FC;
+  color: #f33c0e;
 }
 
 .inputGroup {
@@ -1843,17 +1779,17 @@ input[type=checkbox] {
 }
 
 input[type=checkbox]:checked {
-  accent-color: #4D73FC;
+  accent-color: #f33c0e;
 }
 
 input[type=checkbox]:checked {
-  accent-color: #4D73FC;
-  background-color: #4D73FC;
+  accent-color: #f33c0e;
+  background-color: #f33c0e;
   border-radius: 10px;
 }
 
 input[type=range]::-webkit-slider-thumb {
-  background: #4D73FC;
+  background: #f33c0e;
 }
 
 input[type=radio] {
@@ -1862,7 +1798,7 @@ input[type=radio] {
 }
 
 input[type=radio]:checked {
-  accent-color: #4D73FC;
+  accent-color: #f33c0e;
 }
 
 .alert-message {
@@ -2013,7 +1949,7 @@ input[type=radio]:checked {
   width: 100%;
 }
 .card .card-header .nav-tabs li.flight-sec a.active, .card .card-header .nav-tabs li.flight-sec a:hover {
-  background: #4D73FC;
+  background: #f33c0e;
 }
 @media (max-width: 1099px) {
   .card .card-header .nav-tabs li.flight-sec {
@@ -2081,7 +2017,7 @@ textarea {
 }
 
 .radio-button label {
-  color: #4D73FC;
+  color: #f33c0e;
   font-family: "Inter", sans-serif;
   font-size: 21px;
   font-weight: 500;
@@ -2120,7 +2056,7 @@ textarea {
   top: 0px;
   width: 28px;
   height: 28px;
-  border: 2px solid #4D73FC;
+  border: 2px solid #f33c0e;
   border-radius: 100%;
   background: #F8F8FF;
 }
@@ -2134,11 +2070,11 @@ textarea {
 }
 
 .radio-button input:not(:checked) + label:before {
-  border: 2px solid #4D73FC;
+  border: 2px solid #f33c0e;
 }
 @media (max-width: 674px) {
   .radio-button input:not(:checked) + label:before {
-    border: 1px solid #4D73FC;
+    border: 1px solid #f33c0e;
   }
 }
 
@@ -2147,7 +2083,7 @@ textarea {
   content: "";
   width: 16px;
   height: 16px;
-  background: #4D73FC;
+  background: #f33c0e;
   position: absolute;
   top: 6px;
   left: 6px;
@@ -2192,7 +2128,7 @@ textarea {
   width: 5px;
   height: 12px;
   z-index: 10;
-  border: solid #4D73FC;
+  border: solid #f33c0e;
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
 }
@@ -2345,7 +2281,7 @@ textarea {
   width: 66px;
   height: 66px;
   border: 0;
-  background: #4D73FC;
+  background: #f33c0e;
   color: #F8F8FF;
   display: flex;
   justify-content: center;
@@ -2441,12 +2377,12 @@ textarea {
   font-weight: 400;
 }
 .pagination li a.active {
-  background: #4D73FC;
+  background: #f33c0e;
   color: #0B0C0D;
 }
 .pagination li a:hover {
   color: #0B0C0D;
-  background: #4D73FC;
+  background: #f33c0e;
 }
 
 .modal {
@@ -2490,7 +2426,7 @@ textarea {
 .modal .modal-dialog .modal-content .close {
   border: 0;
   background: transparent;
-  color: #4D73FC;
+  color: #f33c0e;
   padding: 10px 20px 0px 10px;
 }
 .modal .modal-dialog .modal-content .close span {
@@ -2588,16 +2524,16 @@ textarea {
 }
 .main-menu .main-menu__left .main-menu__nav .main-menu__list > li > a.active,
 .main-menu .main-menu__left .main-menu__nav .stricky-header .main-menu__list > li > a.active {
-  color: #4D73FC;
+  color: #f33c0e;
 }
 .main-menu .main-menu__left .main-menu__nav .main-menu__list > li > a:hover,
 .main-menu .main-menu__left .main-menu__nav .stricky-header .main-menu__list > li > a:hover {
-  color: #4D73FC;
+  color: #f33c0e;
 }
 .main-menu .main-menu__left .main-menu__nav .main-menu__list > li.current, .main-menu .main-menu__left .main-menu__nav .main-menu__list > li:hover,
 .main-menu .main-menu__left .main-menu__nav .stricky-header .main-menu__list > li.current,
 .main-menu .main-menu__left .main-menu__nav .stricky-header .main-menu__list > li:hover {
-  color: #4D73FC;
+  color: #f33c0e;
 }
 .main-menu .main-menu__left .main-menu__nav .main-menu__list li ul,
 .main-menu .main-menu__left .main-menu__nav .stricky-header .main-menu__list li ul {
@@ -2656,7 +2592,7 @@ textarea {
 .main-menu .main-menu__left .main-menu__nav .main-menu__list li ul li.current > a, .main-menu .main-menu__left .main-menu__nav .main-menu__list li ul li:hover > a,
 .main-menu .main-menu__left .main-menu__nav .stricky-header .main-menu__list li ul li.current > a,
 .main-menu .main-menu__left .main-menu__nav .stricky-header .main-menu__list li ul li:hover > a {
-  background-color: #4D73FC;
+  background-color: #f33c0e;
   color: #F8F8FF;
 }
 .main-menu .main-menu__left .main-menu__nav .main-menu__list li ul li.current > a::after, .main-menu .main-menu__left .main-menu__nav .main-menu__list li ul li:hover > a::after,
@@ -2722,7 +2658,7 @@ textarea {
   transition: all 500ms ease;
 }
 .main-menu__right .main-menu__login:hover {
-  color: #4D73FC;
+  color: #f33c0e;
 }
 .main-menu__right .center_slach {
   font-size: 21px;
@@ -2770,7 +2706,7 @@ textarea {
   }
 }
 .mobile-nav__toggler:hover {
-  color: #4D73FC;
+  color: #f33c0e;
 }
 
 /*--------------------------------------------------------------
@@ -2873,12 +2809,12 @@ textarea {
   transition: 500ms;
 }
 .mobile-nav__wrapper .mobile-nav__content .main-menu__list li a.expanded {
-  color: #4D73FC;
+  color: #f33c0e;
 }
 .mobile-nav__wrapper .mobile-nav__content .main-menu__list li a button {
   width: 30px;
   height: 30px;
-  background-color: #4D73FC;
+  background-color: #f33c0e;
   border: none;
   outline: none;
   color: #F8F8FF;
@@ -2916,7 +2852,7 @@ textarea {
   margin-left: 20px;
 }
 .mobile-nav__social a:hover {
-  color: #4D73FC;
+  color: #f33c0e;
 }
 
 .mobile-nav__contact {
@@ -2940,13 +2876,13 @@ textarea {
   transition: 500ms;
 }
 .mobile-nav__contact li a:hover {
-  color: #4D73FC;
+  color: #f33c0e;
 }
 .mobile-nav__contact li i {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-color: #4D73FC;
+  background-color: #f33c0e;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -2996,7 +2932,7 @@ footer .social-link ul {
   gap: 16px;
 }
 footer .social-link ul li a {
-  background-color: #4D73FC;
+  background-color: #f33c0e;
   padding: 12px;
   border-radius: 10px;
   transition: all 0.5s ease-in-out;
@@ -3310,7 +3246,7 @@ footer .social-link ul li a:hover {
 .booking .content .booking-info .custom-sel-input-block.location-select i {
   position: absolute;
   bottom: 0;
-  color: #4D73FC;
+  color: #f33c0e;
   font-size: 24px;
 }
 .booking .content .booking-info .input-date-picker .sel-input,
@@ -3431,7 +3367,7 @@ footer .social-link ul li a:hover {
 .booking .content .booking-info .input-date-picker i,
 .booking .content .booking-info .custom-sel-input-block i {
   font-size: clamp(16px, 1.094vw, 24px);
-  color: #4D73FC;
+  color: #f33c0e;
 }
 @media (max-width: 1199px) {
   .booking .content .booking-info .arrows {
@@ -3534,7 +3470,7 @@ footer .social-link ul li a:hover {
   cursor: pointer;
 }
 .radio-tile-group .input-container .radio-button:checked + .radio-tile {
-  background: #4D73FC;
+  background: #f33c0e;
   border: 1px solid #212627;
   color: white;
   transition: all 0.5s ease-in-out;
@@ -3599,7 +3535,7 @@ footer .social-link ul li a:hover {
   }
 }
 .radio-tile-group .input-container .radio-tile-label.departure-radio {
-  color: #4D73FC;
+  color: #f33c0e;
 }
 .radio-tile-group .input-container .radio-tile-label.wizard-label {
   font-size: 27px;
@@ -3668,6 +3604,58 @@ footer .social-link ul li a:hover {
 
 .flight-card .flight-card-slider {
   margin: 0 -16px;
+}
+/* Compact Cards Styles */
+.flight-card-slider.compact-cards .flight-deal-block {
+  padding: 8px !important;
+  min-height: unset !important;
+  height: auto !important;
+}
+.flight-card-slider.compact-cards .flight-deal-block .image-box {
+  margin-bottom: 6px !important;
+  height: 120px;
+  width: 100%;
+}
+@media (min-width: 1200px) {
+  .flight-card-slider.compact-cards .flight-deal-block .image-box {
+    height: 150px;
+  }
+}
+.flight-card-slider.compact-cards .flight-deal-block .image-box img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.flight-card-slider.compact-cards .flight-deal-block h6.color-black {
+  margin-bottom: 2px !important;
+  font-size: 14px !important;
+}
+.flight-card-slider.compact-cards .flight-deal-block p.light-black {
+  margin-bottom: 6px !important;
+  font-size: 11px !important;
+  line-height: 1.2;
+}
+.flight-card-slider.compact-cards .flight-deal-block .price h6 {
+  margin-bottom: 0 !important;
+  font-size: 11px !important;
+}
+.flight-card-slider.compact-cards .flight-deal-block .price h5,
+.flight-card-slider.compact-cards .flight-deal-block .price h6.lightest-black {
+  font-size: 12px !important;
+}
+.flight-card-slider.compact-cards .flight-deal-block .cus-btn {
+  padding: 4px 10px !important;
+  font-size: 11px !important;
+  min-height: unset;
+  height: auto;
+}
+/* Slick Slider overrides for compact height */
+.flight-card-slider.compact-cards .slick-track {
+  display: flex !important;
+  align-items: flex-start !important;
+}
+.flight-card-slider.compact-cards .slick-slide {
+  height: auto !important;
 }
 .flight-card .flight-deal-block {
   border-radius: 10px;
@@ -4005,7 +3993,7 @@ footer .social-link ul li a:hover {
 }
 .news-blog .nav .nav-item .nav-link.active {
   color: #F8F8FF;
-  background: #4D73FC;
+  background: #f33c0e;
   transition: all 0.5s ease-in-out;
   border: 0px;
   padding: 16px 24px;
@@ -4357,7 +4345,7 @@ footer .social-link ul li a:hover {
   top: 12px;
   height: 3px;
   border: 0;
-  background: #4D73FC;
+  background: #f33c0e;
   box-shadow: none;
   cursor: pointer;
 }
@@ -4367,8 +4355,8 @@ footer .social-link ul li a:hover {
   top: 1px;
   height: 24px;
   width: 24px;
-  background-color: #4D73FC;
-  background: #4D73FC;
+  background-color: #f33c0e;
+  background: #f33c0e;
   border: 0;
   border-radius: 24px;
   box-shadow: none;
@@ -4482,7 +4470,7 @@ footer .social-link ul li a:hover {
 .hotel-sidebar .contact-form .hotel-info .custom-sel-input-block.location-select i {
   position: absolute;
   bottom: 0;
-  color: #4D73FC;
+  color: #f33c0e;
   font-size: 24px;
 }
 .hotel-sidebar .contact-form .hotel-info .input-date-picker.location-select::after,
@@ -4612,7 +4600,7 @@ footer .social-link ul li a:hover {
 .hotel-sidebar .contact-form .hotel-info .input-date-picker i,
 .hotel-sidebar .contact-form .hotel-info .custom-sel-input-block i {
   font-size: 21px;
-  color: #4D73FC;
+  color: #f33c0e;
 }
 .hotel-sidebar .contact-form .hotel-info .seat-booking {
   font-weight: 500;
@@ -4669,7 +4657,7 @@ footer .social-link ul li a:hover {
   top: 12px;
   height: 3px;
   border: 0;
-  background: #4D73FC;
+  background: #f33c0e;
   box-shadow: none;
   cursor: pointer;
 }
@@ -4678,8 +4666,8 @@ footer .social-link ul li a:hover {
   top: 1px;
   height: 24px;
   width: 24px;
-  background-color: #4D73FC;
-  background: #4D73FC;
+  background-color: #f33c0e;
+  background: #f33c0e;
   border: 0;
   border-radius: 24px;
   box-shadow: none;
@@ -4780,7 +4768,7 @@ footer .social-link ul li a:hover {
 }
 .paginations ul li:hover {
   transition: all 0.5s ease-in-out;
-  background: #4D73FC;
+  background: #f33c0e;
   color: #F8F8FF;
   cursor: pointer;
 }
@@ -4789,14 +4777,14 @@ footer .social-link ul li a:hover {
   color: #F8F8FF;
 }
 .paginations ul li.active {
-  background: #4D73FC;
+  background: #f33c0e;
   color: #F8F8FF;
 }
 .paginations ul li.active a {
   color: #F8F8FF;
 }
 .paginations ul li.arrow a i {
-  color: #4D73FC;
+  color: #f33c0e;
 }
 .paginations ul li.arrow:hover a i {
   color: #F8F8FF;
@@ -4826,7 +4814,7 @@ footer .social-link ul li a:hover {
   width: fit-content;
   transition: all 0.5s ease-in-out;
   padding: 16px 32px;
-  background-color: #4D73FC;
+  background-color: #f33c0e;
   color: #F8F8FF;
   border-radius: 10px;
   border: 0px;
@@ -4920,7 +4908,7 @@ footer .social-link ul li a:hover {
   }
 }
 .flight-booking .booking-form .form-wizard-header .nav .nav-item.activated .nav-link {
-  background-color: #4D73FC;
+  background-color: #f33c0e;
   color: #F8F8FF;
   border: 0;
   padding: 5px;
@@ -4938,7 +4926,7 @@ footer .social-link ul li a:hover {
   font-size: 16px;
   font-weight: 500;
   line-height: 150%;
-  background-color: #4D73FC;
+  background-color: #f33c0e;
   color: #F8F8FF;
 }
 .flight-booking .booking-form .form-wizard-header .nav .nav-item.activated:is(.activated) i {
@@ -4948,8 +4936,8 @@ footer .social-link ul li a:hover {
   display: none;
 }
 .flight-booking .booking-form .form-wizard-header .nav .nav-item.active .nav-link {
-  background: #4D73FC;
-  border: 1px solid #4D73FC;
+  background: #f33c0e;
+  border: 1px solid #f33c0e;
 }
 .flight-booking .booking-form .form-wizard-header .nav .nav-item.active .nav-link span {
   color: #F8F8FF;
@@ -4983,7 +4971,7 @@ footer .social-link ul li a:hover {
 }
 .flight-booking .booking-form .form-wizard-header .nav .nav-item .nav-link.active span {
   color: #F8F8FF;
-  background: #4D73FC;
+  background: #f33c0e;
   z-index: 2;
   display: none;
 }
@@ -5007,7 +4995,7 @@ footer .social-link ul li a:hover {
   padding-right: 0;
 }
 .flight-booking .booking-form .form-wizard-header .nav .nav-item .nav-link.active .num {
-  background-color: #4D73FC;
+  background-color: #f33c0e;
   color: #F8F8FF;
   border: 0;
 }
@@ -5021,7 +5009,7 @@ footer .social-link ul li a:hover {
   font-size: 16px;
   font-weight: 500;
   line-height: 150%;
-  background-color: #4D73FC;
+  background-color: #f33c0e;
   color: #F8F8FF;
 }
 .flight-booking .booking-form .form-wizard-header .nav .nav-item .nav-link:is(.done) i {
@@ -5066,7 +5054,7 @@ footer .social-link ul li a:hover {
 }
 .flight-booking .booking-form .detail-form .gender-select .select-1::before {
   content: "";
-  color: #4D73FC;
+  color: #f33c0e;
   position: absolute;
   top: 0;
   left: 0;
@@ -5089,7 +5077,7 @@ footer .social-link ul li a:hover {
   transition: 0.25s all ease;
 }
 .flight-booking .booking-form .detail-form .gender-select .select-1:hover::after {
-  color: #4D73FC;
+  color: #f33c0e;
 }
 .flight-booking .booking-form .detail-form select {
   -webkit-appearance: none;
@@ -5122,7 +5110,7 @@ footer .social-link ul li a:hover {
 }
 .flight-booking .booking-form .detail-form .select-1::before {
   content: "";
-  color: #4D73FC;
+  color: #f33c0e;
   position: absolute;
   top: 0;
   left: 0;
@@ -5145,7 +5133,7 @@ footer .social-link ul li a:hover {
   transition: 0.25s all ease;
 }
 .flight-booking .booking-form .detail-form .select-1:hover::after {
-  color: #4D73FC;
+  color: #f33c0e;
 }
 .flight-booking .booking-form .detail-form select {
   -webkit-appearance: none;
@@ -5178,7 +5166,7 @@ footer .social-link ul li a:hover {
 }
 .flight-booking .booking-form .detail-form .select-2::before {
   content: "";
-  color: #4D73FC;
+  color: #f33c0e;
   position: absolute;
   top: 0;
   left: 0;
@@ -5201,7 +5189,7 @@ footer .social-link ul li a:hover {
   transition: 0.25s all ease;
 }
 .flight-booking .booking-form .detail-form .select-2:hover::after {
-  color: #4D73FC;
+  color: #f33c0e;
 }
 .flight-booking .card-select {
   position: relative;
@@ -5311,7 +5299,7 @@ footer .social-link ul li a:hover {
 .hotel-listing .hotel-block .rating-number {
   padding: 12px;
   border-radius: 5px;
-  background: #4D73FC;
+  background: #f33c0e;
   color: #F8F8FF;
 }
 .hotel-listing .hotel-block:hover .image-box img {
@@ -5448,7 +5436,7 @@ footer .social-link ul li a:hover {
 .hotel-availability .availability-info .custom-sel-input-block.location-select i {
   position: absolute;
   bottom: 0;
-  color: #4D73FC;
+  color: #f33c0e;
   font-size: 24px;
 }
 .hotel-availability .availability-info .input-date-picker .sel-input,
@@ -5569,7 +5557,7 @@ footer .social-link ul li a:hover {
 .hotel-availability .availability-info .input-date-picker i,
 .hotel-availability .availability-info .custom-sel-input-block i {
   font-size: 21px;
-  color: #4D73FC;
+  color: #f33c0e;
 }
 .hotel-availability .availability-info .seat-booking {
   font-size: 21px;
@@ -5724,7 +5712,7 @@ footer .social-link ul li a:hover {
 .hotel-booking-time .custom-sel-input-block.location-select i {
   position: absolute;
   bottom: 0;
-  color: #4D73FC;
+  color: #f33c0e;
   font-size: 24px;
 }
 .hotel-booking-time .input-date-picker .sel-input,
@@ -5833,7 +5821,7 @@ footer .social-link ul li a:hover {
 .hotel-booking-time .input-date-picker i,
 .hotel-booking-time .custom-sel-input-block i {
   font-size: 21px;
-  color: #4D73FC;
+  color: #f33c0e;
 }
 
 .detail-form textarea {
@@ -5856,7 +5844,7 @@ footer .social-link ul li a:hover {
 .brand-logo .rating {
   padding: 8px clamp(12px, 1.25vw, 36px);
   border-radius: 5px;
-  background: #4D73FC;
+  background: #f33c0e;
 }
 
 .pricing-area .pre-reg {
@@ -5979,7 +5967,7 @@ footer .social-link ul li a:hover {
   color: #F8F8FF;
 }
 .signup .form-block .facebook {
-  background: #4D73FC;
+  background: #f33c0e;
   border: 0;
   border-radius: 10px;
   box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.04), 6px 3px 14px 0px rgba(0, 0, 0, 0.04), 23px 12px 26px 0px rgba(0, 0, 0, 0.03), 53px 27px 35px 0px rgba(0, 0, 0, 0.02), 94px 48px 42px 0px rgba(0, 0, 0, 0.01);
@@ -6090,7 +6078,7 @@ footer .social-link ul li a:hover {
   transition: 0.25s all ease;
 }
 .signup .country-selector .select:hover::after {
-  color: #4D73FC;
+  color: #f33c0e;
 }
 
 .hotel-schedule-block .hotel-detail .rating-review {
@@ -6101,7 +6089,7 @@ footer .social-link ul li a:hover {
 .hotel-schedule-block .hotel-detail .rating-review .number {
   padding: clamp(4px, 0.417vw, 16px) clamp(8px, 0.625vw, 32px);
   border-radius: 4px;
-  background: #4D73FC;
+  background: #f33c0e;
   color: #F8F8FF;
 }
 .hotel-schedule-block .hotel-detail .room-detail-box {
