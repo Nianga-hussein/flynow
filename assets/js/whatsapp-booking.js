@@ -1,38 +1,17 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Utilisation de la délégation d'événements pour être sûr de capturer le clic
-    document.body.addEventListener('click', function(e) {
-        if (e.target && e.target.classList.contains('whatsapp-submit-btn')) {
+    
+    // Fonction principale de gestion du clic
+    function handleWhatsappClick(e) {
+        // Vérification de la classe du bouton
+        if (e.target && (e.target.classList.contains('whatsapp-submit-btn') || e.target.closest('.whatsapp-submit-btn'))) {
             e.preventDefault();
-            handleSubmission(e.target);
-        }
-    });
-
-    function handleSubmission(btn) {
-        // Validation simple : vérifier si des champs requis sont vides dans l'étape active
-        // Le script wizard.js gère l'affichage des erreurs, nous vérifions juste l'état
-        let isValid = true;
-        const currentStep = btn.closest('.wizard-fieldset');
-        if (currentStep) {
-            const requiredInputs = currentStep.querySelectorAll('.wizard-required');
-            requiredInputs.forEach(function(input) {
-                if (!input.value.trim()) {
-                    isValid = false;
-                    // Forcer l'affichage de l'erreur (au cas où wizard.js ne l'a pas encore fait)
-                    // Note: wizard.js le fait aussi, mais on s'assure
-                    const errorDiv = input.parentElement.querySelector('.wizard-form-error');
-                    if(errorDiv) errorDiv.style.display = 'block';
-                }
-            });
-        }
-
-        if (isValid) {
+            e.stopPropagation(); // Arrêter la propagation pour éviter les conflits avec d'autres scripts
             sendToWhatsapp();
-        } else {
-            // Optionnel : faire défiler vers la première erreur
-            const firstError = currentStep.querySelector('.wizard-required:invalid, .wizard-required[value=""]');
-            if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
     }
+
+    // Attacher l'écouteur d'événements au document pour la délégation (plus robuste)
+    document.addEventListener('click', handleWhatsappClick, true); // Use capture phase to ensure we catch it first
 
     function getSelectedText(elementId) {
         const elt = document.getElementById(elementId);
@@ -44,16 +23,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function getValue(elementId) {
         const elt = document.getElementById(elementId);
-        return elt ? elt.value : 'Non spécifié';
+        return elt ? elt.value.trim() : 'Non spécifié';
     }
 
     function sendToWhatsapp() {
-        // Récupération des données
+        // Récupération des données du formulaire (Step 2 principalement)
         const gender = getSelectedText('gender');
         const firstName = getValue('first-name');
         const lastName = getValue('last-name');
         const email = getValue('email');
-        const city = getSelectedText('nationality');
+        const city = getSelectedText('nationality'); // Utilisé pour Ville/Quartier dans le HTML modifié
         const phone = getValue('phone');
         const date = getValue('flightDep');
         const address = getValue('post_code');
@@ -61,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const urgency = getSelectedText('format');
         const inspection = getSelectedText('format-2');
         
-        // Paiement
+        // Paiement (Step 3)
         let payment = "Non spécifié";
         const laterRadio = document.getElementById('later');
         const nowRadio = document.getElementById('now');
@@ -94,10 +73,14 @@ document.addEventListener('DOMContentLoaded', function() {
         // Numéro WhatsApp (sans le +)
         const whatsappNumber = "36203630726";
         
-        // Création de l'URL
-        const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+        // Encodage du message
+        const encodedMessage = encodeURIComponent(message);
         
-        // Ouverture dans un nouvel onglet
-        window.open(url, '_blank');
+        // Utilisation de l'URL universelle WhatsApp
+        // Sur mobile, cela ouvrira l'app. Sur desktop, cela ouvrira WhatsApp Web ou l'app desktop.
+        const url = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+        
+        // Redirection directe (meilleur pour mobile que window.open)
+        window.location.href = url;
     }
 });
