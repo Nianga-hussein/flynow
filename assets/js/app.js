@@ -326,34 +326,16 @@
     },
     initializeSlick: function (e) {
       if ($(".flight-card-slider").length) {
+        // MOKO: Content is populated by index-categories.js, do not empty or overwrite here.
+        /*
         // Populate Categories dynamically for slider if it exists
         const slider = $(".flight-card-slider");
         slider.empty(); 
         
         if (typeof mokoCategories !== 'undefined') {
-            mokoCategories.forEach((cat, index) => {
-                 const image = cat.image;
-                 const subcats = cat.subcategories.slice(0, 3).join(", ") + "...";
-                 const html = `
-                    <div class="flight-deal-block bg-white p-16">
-                        <div class="image-box mb-12">
-                            <a href="flight-listing.html"><img src="assets/media/Categories/${image}" alt="${cat.name}"></a>
-                        </div>
-                        <div class="content-box">
-                            <h6 class="color-black mb-8"><a href="flight-listing.html">${cat.name}</a></h6>
-                            <p class="light-black mb-12 text-small">${subcats}</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="price">
-                                    <h6 class="light-black mb-4 fw-500" style="font-size: 12px;">Service</h6>
-                                    <h6 class="lightest-black fw-500" style="font-size: 14px;">Sur devis</h6>
-                                </div>
-                                <a href="flight-listing.html" class="cus-btn small-pad" style="padding: 6px 12px; font-size: 12px;">Commander</a>
-                            </div>
-                        </div>
-                    </div>`;
-                 slider.append(html);
-            });
+             // ... logic removed to avoid conflict ...
         }
+        */
 
         $(".flight-card-slider").slick({
           slidesToShow: 6,
@@ -393,41 +375,15 @@
       }
 
       // Initialize Service Grid if exists - independent of slider
+      /*
       if ($(".service-grid").length) {
             const grid = $(".service-grid");
             grid.empty();
             if (typeof mokoCategories !== 'undefined') {
-                mokoCategories.forEach((cat, index) => {
-                     const image = cat.image;
-                     const subcatsList = cat.subcategories.map(sub => `<li class="d-flex align-items-start mb-2"><i class="fas fa-check-circle color-primary mt-1 me-2" style="margin-right: 8px;"></i><span>${sub}</span></li>`).join("");
-                     const html = `
-                        <div class="col-xl-3 col-lg-4 col-md-6 mb-24">
-                            <div class="flight-deal-block bg-white p-24 h-100 d-flex flex-column rounded shadow-sm">
-                                <div class="image-box mb-16 rounded overflow-hidden">
-                                    <a href="flight-booking.html"><img src="assets/media/Categories/${image}" alt="${cat.name}" class="w-100" style="height: 200px; object-fit: cover; transition: transform 0.3s ease;"></a>
-                                </div>
-                                <div class="content-box flex-grow-1">
-                                    <h5 class="color-black mb-16 fw-700 text-uppercase"><a href="flight-booking.html">${cat.name}</a></h5>
-                                    <div class="divider mb-16" style="height: 2px; background-color: #f3f3f3; width: 50px;"></div>
-                                    <ul class="unstyled mb-24 text-muted" style="font-size: 14px; line-height: 1.6;">
-                                        ${subcatsList}
-                                    </ul>
-                                </div>
-                                <div class="action-box mt-auto pt-16 border-top">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="price">
-                                            <h6 class="light-black mb-0 fw-500" style="font-size: 12px;">À partir de</h6>
-                                            <h6 class="color-primary fw-700" style="font-size: 16px;">Sur devis</h6>
-                                        </div>
-                                        <a href="flight-booking.html" class="cus-btn small-pad shadow-sm">Commander</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>`;
-                     grid.append(html);
-                });
+                // ...
             }
         }
+      */
 
       if ($(".hotel-image-slider").length) {
         $(".hotel-image-slider").slick({
