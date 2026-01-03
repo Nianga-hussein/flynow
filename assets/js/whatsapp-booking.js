@@ -1,5 +1,59 @@
 document.addEventListener('DOMContentLoaded', function() {
     
+    // --- PRE-REMPLISSAGE DU FORMULAIRE DEPUIS L'URL ---
+    const urlParams = new URLSearchParams(window.location.search);
+    
+    // 1. Service & Description
+    const serviceParam = urlParams.get('service');
+    const detailsParam = urlParams.get('details');
+    const categoryParam = urlParams.get('category'); // ID de catégorie
+    
+    if (serviceParam || detailsParam) {
+        let descText = "";
+        if (serviceParam) descText += "Service: " + serviceParam;
+        if (detailsParam) descText += (descText ? "\n" : "") + "Détails: " + detailsParam;
+        
+        // Cible: #f_number (Description du besoin)
+        const descField = document.getElementById('f_number');
+        if (descField) {
+            descField.value = descText;
+            // Déclencher l'événement pour mettre à jour le résumé si présent
+            descField.dispatchEvent(new Event('input'));
+        }
+    }
+
+    // 2. Lieu / Adresse
+    const locationParam = urlParams.get('location');
+    if (locationParam) {
+        // On met ça dans "Adresse précise" (#post_code) car #nationality est un select fixe
+        const addressField = document.getElementById('post_code');
+        if (addressField) {
+            addressField.value = locationParam;
+            addressField.dispatchEvent(new Event('input'));
+        }
+    }
+
+    // 3. Date
+    const dateParam = urlParams.get('date');
+    if (dateParam) {
+        const dateField = document.getElementById('flightDep');
+        if (dateField) {
+            // Note: le datepicker peut nécessiter un format spécifique ou une méthode API
+            // On essaie d'abord la valeur directe
+            dateField.value = dateParam;
+            
+            // Si c'est un pickadate, on essaie de mettre à jour via l'API si disponible (jQuery souvent)
+            if (typeof $ !== 'undefined' && $(dateField).pickadate('picker')) {
+                // Essai de parsing simple (suppose format compatible)
+                // $(dateField).pickadate('picker').set('select', dateParam);
+            }
+            
+            dateField.dispatchEvent(new Event('input'));
+        }
+    }
+
+    // --- FIN PRE-REMPLISSAGE ---
+
     // Fonction principale de gestion du clic
     function handleWhatsappClick(e) {
         // Vérification de la classe du bouton
