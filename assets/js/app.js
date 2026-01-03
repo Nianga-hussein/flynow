@@ -338,34 +338,32 @@
         */
 
         $(".flight-card-slider").slick({
-          slidesToShow: 6,
+          slidesToShow: 4, // Show 4 cards at once
           slidesToScroll: 1,
           infinite: true,
-          autoplaySpeed: 3000,
+          autoplay: true, // Enable Autoplay for main categories
+          autoplaySpeed: 0, // Continuous scrolling
+          speed: 3000, // Speed of scrolling (higher is slower)
+          cssEase: 'linear', // Smooth linear movement
           arrows: true,
           prevArrow: '<button class="slick-prev"><i class="fas fa-chevron-left"></i></button>',
           nextArrow: '<button class="slick-next"><i class="fas fa-chevron-right"></i></button>',
+          pauseOnHover: true,
           responsive: [
             {
               breakpoint: 1400,
-              settings: {
-                slidesToShow: 4,
-              },
-            },
-            {
-              breakpoint: 992,
               settings: {
                 slidesToShow: 3,
               },
             },
             {
-              breakpoint: 768,
+              breakpoint: 992,
               settings: {
                 slidesToShow: 2,
               },
             },
             {
-              breakpoint: 480,
+              breakpoint: 768,
               settings: {
                 slidesToShow: 1,
               },
