@@ -1,4 +1,4 @@
-﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿<!DOCTYPE html>
+﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿<!DOCTYPE html>
 <html lang="fr">
 
 <head>
@@ -6,7 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="MOKO - Tous les services, une seule entreprise">
-
+    <meta name="theme-color" content="#E73C3E">
+    <link rel="manifest" href="manifest.json">
+    
     <title>MOKO | Services & Conciergerie</title>
 
     <!-- Favicon -->
@@ -1086,6 +1088,61 @@
         </section>
         <!-- Blog Area End -->
 
+        <!-- App Download Section Start -->
+        <section class="app-download p-40 bg-lightest-gray" data-sal="slide-up" data-sal-duration="800" data-sal-delay="100" data-sal-easing="ease-in-out">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-xl-6 col-lg-6 mb-lg-0 mb-32">
+                        <h2 class="lightest-black mb-16">Téléchargez l'application <span class="color-primary">MOKO</span></h2>
+                        <p class="dark-gray mb-32">Accédez à tous nos services en un clic depuis votre mobile. Une expérience fluide, rapide et sécurisée. Installez l'application maintenant !</p>
+                        <div class="d-flex gap-24 flex-wrap">
+                            <button id="install-ios" class="cus-btn bg-black d-flex align-items-center gap-12" style="padding: 12px 24px; border-radius: 10px;">
+                                <i class="fab fa-apple" style="font-size: 28px;"></i>
+                                <div class="text-start">
+                                    <span style="font-size: 10px; display: block; line-height: 1;">Télécharger sur</span>
+                                    <span style="font-size: 16px; font-weight: 700; line-height: 1;">App Store</span>
+                                </div>
+                            </button>
+                            <button id="install-android" class="cus-btn bg-black d-flex align-items-center gap-12" style="padding: 12px 24px; border-radius: 10px;">
+                                <i class="fab fa-google-play" style="font-size: 24px;"></i>
+                                <div class="text-start">
+                                    <span style="font-size: 10px; display: block; line-height: 1;">DISPONIBLE SUR</span>
+                                    <span style="font-size: 16px; font-weight: 700; line-height: 1;">Google Play</span>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 text-center">
+                        <img src="assets/media/images/application.png" alt="MOKO App" class="br-20 light-shadow" style="max-height: 400px; object-fit: cover;">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- App Download Section End -->
+
+        <!-- iOS Install Instruction Modal -->
+        <div class="modal fade" id="iosInstallModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Installer sur iPhone / iPad</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-center">
+                        <p class="mb-3">Pour installer MOKO sur votre appareil iOS :</p>
+                        <ol class="text-start d-inline-block">
+                            <li class="mb-2">1. Appuyez sur le bouton <strong>Partager</strong> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Apple_Share_icon.svg/1200px-Apple_Share_icon.svg.png" width="20" style="vertical-align: middle;"> dans Safari.</li>
+                            <li class="mb-2">2. Faites défiler vers le bas.</li>
+                            <li>3. Sélectionnez <strong>"Sur l'écran d'accueil"</strong> <i class="far fa-plus-square"></i>.</li>
+                        </ol>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="cus-btn small-pad" data-bs-dismiss="modal">Compris</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Footer Start -->
         <footer class="bg-white p-40" data-sal="slide-down" data-sal-duration="800" data-sal-delay="100" data-sal-easing="ease-in-out">
             <div class="container-fluid">
@@ -1228,6 +1285,23 @@
     <script src="assets/js/categories-data.js"></script>
     <script src="assets/js/index-categories.js"></script>
     <script src="assets/js/app.js"></script>
+    <script src="assets/js/install-app.js"></script>
+    
+    <!-- PWA Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('MOKO ServiceWorker registration successful with scope: ', registration.scope);
+                    })
+                    .catch(err => {
+                        console.log('MOKO ServiceWorker registration failed: ', err);
+                    });
+            });
+        }
+    </script>
+
     <!-- Custom MOKO Script for Counters -->
     <script>
         $(document).ready(function() {

@@ -5928,7 +5928,7 @@ footer .social-link ul li a:hover {
 
 @media (max-width: 992px) {
   .signup {
-    background: url("../media/images/login.jpg");
+    background: url("../media/images/application.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
