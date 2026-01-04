@@ -1,4 +1,4 @@
-﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿<!DOCTYPE html>
+﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿<!DOCTYPE html>
 <html lang="fr">
 
 <head>
@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="assets/css/vendor/jquery.timepicker.min.css">
     <link rel="stylesheet" href="assets/css/vendor/ui-autocomplete.css">
     <link rel="stylesheet" href="assets/css/vendor/sal.css">
+    <link rel="stylesheet" href="assets/css/mobile-design.css">
     <link rel="stylesheet" href="assets/css/app.css">
 </head>
 
@@ -41,6 +42,93 @@
     </div>
     <!-- Main Wrapper Start -->
     <div id="main-wrapper" class="main-wrapper mr-4">
+
+        <!-- MOBILE APP VIEW (Visible only on mobile) -->
+        <div class="mobile-app-view d-lg-none">
+            <!-- Header -->
+            <div class="mobile-header">
+                <div class="user-profile-row">
+                    <div class="user-info">
+                        <img src="assets/media/user/user-1.png" alt="User" class="user-avatar">
+                        <div class="user-greeting">
+                            <h4>Bonjour, Client</h4>
+                            <div class="user-location">
+                                <i class="fas fa-map-marker-alt"></i> Brazzaville, CG
+                            </div>
+                        </div>
+                    </div>
+                    <div class="notification-btn">
+                        <i class="far fa-bell"></i>
+                        <div class="notification-dot"></div>
+                    </div>
+                </div>
+                <h2 class="header-title">Quel service souhaitez-vous utiliser ?</h2>
+                
+                <!-- Search -->
+                <div class="mobile-search-bar">
+                    <div class="search-input-group">
+                        <i class="far fa-search"></i>
+                        <input type="text" class="search-input" placeholder="Rechercher un service...">
+                    </div>
+                    <button class="filter-btn">
+                        <i class="fal fa-sliders-h"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Promo Banner -->
+            <div class="promo-banner">
+                <div class="promo-content">
+                    <div class="promo-discount">45% OFF</div>
+                    <div class="promo-text">Réductions exclusives sur les services à domicile</div>
+                    <a href="flight-booking.html" class="promo-btn">Commander</a>
+                </div>
+                <img src="assets/media/banner/banner.png" alt="Worker" class="promo-image">
+            </div>
+
+            <!-- Categories Grid -->
+            <div class="section-header">
+                <h3 class="section-title">Catégories</h3>
+                <a href="flight-listing.html" class="see-all">Voir tout</a>
+            </div>
+            <div class="categories-grid" id="mobile-categories-container">
+                <!-- JS will populate this -->
+            </div>
+
+            <!-- Popular Services -->
+            <div class="section-header">
+                <h3 class="section-title">Services Populaires</h3>
+                <a href="flight-listing.html" class="see-all">Voir tout</a>
+            </div>
+            <div class="mobile-popular-services" id="mobile-popular-container">
+                <!-- JS will populate this -->
+            </div>
+            
+            <!-- Bottom Nav -->
+            <nav class="mobile-bottom-nav">
+                <a href="index.html" class="nav-item active">
+                    <i class="fas fa-home"></i>
+                    <span>Accueil</span>
+                </a>
+                <a href="flight-listing.html" class="nav-item">
+                    <i class="fas fa-th-large"></i>
+                    <span>Catégories</span>
+                </a>
+                <a href="flight-booking.html" class="nav-item">
+                    <i class="far fa-calendar-alt"></i>
+                    <span>Réserver</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="far fa-comment-dots"></i>
+                    <span>Chat</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="far fa-user"></i>
+                    <span>Profil</span>
+                </a>
+            </nav>
+        </div>
+        <!-- END MOBILE APP VIEW -->
 
         <!-- Header Area Start -->
         <header>
@@ -769,6 +857,7 @@
     <script src="assets/js/booking-generator.js"></script>
     <script src="assets/js/index-categories.js"></script>
     <script src="assets/js/app.js"></script>
+    <script src="assets/js/mobile-view.js"></script>
     <script src="assets/js/install-app.js"></script>
     
     <!-- PWA Service Worker Registration -->
