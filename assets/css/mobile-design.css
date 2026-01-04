@@ -162,7 +162,7 @@
 
     /* Price "From..." */
     .global-travel-hotel .content-box h5.black::before {
-        content: "À partir de 10k" !important; /* Shorter text */
+        content: "À partir de 50.000 FCFA" !important; /* Updated price */
         display: block;
         font-size: 9px;
         color: #444;
@@ -408,7 +408,7 @@
 
     .promo-btn {
         padding: 8px 16px;
-        background: #4facfe;
+        background: #f33c0e; /* MOKO Brand Color */
         color: #fff;
         border-radius: 20px;
         font-size: 12px;
@@ -567,7 +567,7 @@
 
     .btn-book {
         padding: 6px 12px;
-        background: #4facfe;
+        background: #f33c0e; /* MOKO Brand Color */
         border-radius: 8px;
         font-size: 11px;
         color: #fff;

@@ -2,10 +2,107 @@
     'use strict';
 
     $(document).ready(function() {
+        // Ensure data is available
         if (window.categoriesData) {
             renderMobileCategories(window.categoriesData);
             renderMobilePopularServices(window.categoriesData);
+        } else {
+            console.error("MOKO: categoriesData not found!");
         }
+
+        // --- SEARCH BAR FUNCTIONALITY (Event Delegation for robustness) ---
+        $(document).on('input', '.mobile-search-bar .search-input', function() {
+            const query = $(this).val().toLowerCase().trim();
+            const resultsContainer = $('#mobile-popular-container');
+            
+            // Check if data exists
+            if (!window.categoriesData) return;
+
+            if (query.length < 2) {
+                // If query is too short, revert to popular services
+                renderMobilePopularServices(window.categoriesData);
+                return;
+            }
+
+            // Search Logic
+            const matches = [];
+            window.categoriesData.forEach(cat => {
+                // 1. Check category title
+                if (cat.title.toLowerCase().includes(query)) {
+                    // If category matches, show its subcategories (all of them or limit)
+                    if (cat.subcategories) {
+                        cat.subcategories.forEach(sub => {
+                            matches.push({ cat: cat, sub: sub });
+                        });
+                    }
+                } 
+                // 2. Check subcategories titles
+                else if (cat.subcategories) {
+                    cat.subcategories.forEach(sub => {
+                        if (sub.title.toLowerCase().includes(query)) {
+                            matches.push({ cat: cat, sub: sub });
+                        }
+                    });
+                }
+            });
+
+            // Remove duplicates (in case subcategory matched AND category matched)
+            const uniqueMatches = [];
+            const seen = new Set();
+            matches.forEach(item => {
+                const key = item.sub.title;
+                if (!seen.has(key)) {
+                    seen.add(key);
+                    uniqueMatches.push(item);
+                }
+            });
+
+            // Render Results
+            resultsContainer.empty();
+            if (uniqueMatches.length === 0) {
+                resultsContainer.html(`
+                    <div style="text-align:center; padding:30px 10px; color:#999;">
+                        <i class="far fa-frown" style="font-size: 24px; margin-bottom: 10px;"></i><br>
+                        Aucun service trouvé pour "${$(this).val()}"
+                    </div>
+                `);
+            } else {
+                uniqueMatches.forEach(item => {
+                    const cat = item.cat;
+                    const sub = item.sub;
+                    
+                    // Build Image Path
+                    let imgPath = `assets/media/${cat.folder}/${sub.image}`;
+                    
+                    // Dynamic Price (or fixed base price)
+                    // Use the 50.000 FCFA base as requested recently or random
+                    const prices = ["10.000", "15.000", "25.000", "50.000"];
+                    const price = prices[Math.floor(Math.random() * prices.length)];
+
+                    const html = `
+                        <div class="service-card">
+                            <div class="service-img-box">
+                                <img src="${imgPath}" alt="${sub.title}" onerror="this.src='${cat.image}'">
+                            </div>
+                            <div class="service-info">
+                                <h5 class="service-name">${sub.title}</h5>
+                                <div class="service-meta">
+                                    <span class="service-rating"><i class="fas fa-star"></i> 4.8</span>
+                                    <span class="service-category" style="font-size:10px; color:#999; margin-left:5px;">${cat.title}</span>
+                                </div>
+                                <div class="service-price">À partir de ${price} FCFA</div>
+                                <div class="service-actions">
+                                    <a href="service-details.html?category=${cat.id}&service=${encodeURIComponent(sub.title)}" class="btn-view">Détails</a>
+                                    <a href="flight-booking.html?category=${cat.id}&service=${encodeURIComponent(sub.title)}" class="btn-book">Commander</a>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    resultsContainer.append(html);
+                });
+            }
+        });
+        // --- END SEARCH FUNCTIONALITY ---
     });
 
     function renderMobileCategories(data) {
@@ -14,12 +111,11 @@
 
         container.empty();
         
-        // Show first 8 categories for grid to keep it clean, or all if needed.
-        // Let's show first 8 and then "See All" links to listing.
+        // Limit to 8 for grid
         const limit = 8;
         
         data.slice(0, limit).forEach(cat => {
-            // Shorten title for grid if too long
+            // Shorten title
             let displayTitle = cat.title.split('&')[0].trim(); 
             if(displayTitle.length > 10) displayTitle = displayTitle.substring(0, 10) + '..';
 
@@ -41,29 +137,15 @@
 
         container.empty();
 
-        // Pick a few representative subcategories
-        const popularPicks = [
-            { catId: 'maison-quotidien', subIndex: 0 }, // Ménage
-            { catId: 'transport-logistique', subIndex: 1 }, // Chauffeur
-            { catId: 'famille-assistance', subIndex: 0 }, // Babysitting
-            { catId: 'sante-bien-etre', subIndex: 0 } // Coaching
-        ];
-
         let count = 0;
         
-        // Iterate through data to find matches or just pick first ones
+        // Default popular view: Pick first subcategory of first 5 categories
         data.forEach(cat => {
-            if (count >= 5) return; // Limit to 5
+            if (count >= 5) return; 
             
-            // Logic: Pick the first subcategory of the first 5 categories
             if (cat.subcategories && cat.subcategories.length > 0) {
                 const sub = cat.subcategories[0];
-                
-                // Construct path based on folder structure
-                // Assuming assets/media/[Folder]/[Image]
                 let imgPath = `assets/media/${cat.folder}/${sub.image}`;
-                
-                // Randomize price a bit for demo
                 const prices = ["10.000", "15.000", "25.000", "50.000"];
                 const price = prices[Math.floor(Math.random() * prices.length)];
 
