@@ -14,14 +14,26 @@
         $(document).on('input', '.mobile-search-bar .search-input', function() {
             const query = $(this).val().toLowerCase().trim();
             const resultsContainer = $('#mobile-popular-container');
+            const popularWrapper = $('#mobile-popular-wrapper');
+            const categoriesWrapper = $('#mobile-categories-wrapper');
             
             // Check if data exists
             if (!window.categoriesData) return;
 
             if (query.length < 2) {
+                // Restore order: Categories first, then Popular
+                if (popularWrapper.length && categoriesWrapper.length) {
+                    categoriesWrapper.insertBefore(popularWrapper);
+                }
+                
                 // If query is too short, revert to popular services
                 renderMobilePopularServices(window.categoriesData);
                 return;
+            }
+
+            // Search active: Popular (Results) first, then Categories
+            if (popularWrapper.length && categoriesWrapper.length) {
+                popularWrapper.insertBefore(categoriesWrapper);
             }
 
             // Search Logic
